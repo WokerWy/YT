@@ -1,0 +1,60 @@
+import logging
+from telegram import Update
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
+from googleapiclient.discovery import build
+
+# Настройка логирования
+logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+# API для YouTube
+YOUTUBE_API_KEY = 'YOUR_YOUTUBE_API_KEY'
+
+
+# Функция для получения информации о видео
+def get_video_info(video_id):
+    youtube = build('youtube', 'v3', developerKey=YOUTUBE_API_KEY)
+    request = youtube.videos().list(part='snippet,contentDetails', id=video_id)
+    response = request.execute()
+
+    if response['items']:
+        video_data = response['items'][0]
+        title = video_data['snippet']['title']
+        description = video_data['snippet']['description']
+        return f"**Title:** {title}\n\n**Description:** {description}"
+    else:
+        return "Video not found."
+
+    # Обработка команды /start
+
+
+def start(update: Update, context: CallbackContext) -> None:
+    update.message.reply_text('Welcome! Send me a YouTube video link.')
+
+
+# Обработка текстовых сообщений
+def handle_message(update: Update, context: CallbackContext) -> None:
+    message = update.message.text
+    video_id = message.split("v=")[-1] if "v=" in message else None
+
+    if video_id:
+        video_info = get_video_info(video_id)
+        update.message.reply_text(video_info, parse_mode='Markdown')
+    else:
+        update.message.reply_text("Please send a valid YouTube video link.")
+
+
+def main():
+    # TELEGRAM API
+    updater = Updater("TELEGRAM_BOT_TOKEN")
+
+    dp = updater.dispatcher
+    dp.add_handler(CommandHandler("start", start))
+    dp.add_handler(MessageHandler(Filters.text & ~Filters.command, handle_message))
+
+    updater.start_polling()
+    updater.idle()
+
+
+if __name__ == '__main__':
+    main()
