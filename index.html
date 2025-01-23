@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты</title>
+    <style>
+        /* Основные стили */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Заголовок */
+        header {
+            background-color: #97c93f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Контейнер */
+        .container {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .button {
+            display: block;
+            background-color: #97c93f;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            margin: 15px auto;
+            width: 200px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background-color: #85b639;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Нижняя панель */
+        .footer {
+            background-color: white;
+            border-top: 1px solid #ddd;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+
+        .footer-item {
+            text-align: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .footer-item img {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>Отчеты</header>
+    <div class="container">
+        <a href="#" class="button">Отчет в PDF</a>
+        <div class="image-container">
+            <img src="https://i.pinimg.com/564x/ff/cd/a1/ffcda1ddf83fe41924b1481d0ad1ccee.jpg" alt="Иллюстрация">
+        </div>
+        <p class="description">ОТПРАВЬ ОТЧЕТ О СВОЁМ ПИТАНИИ ПРОФЕССИОНАЛЬНОМУ НУТРИЦИОЛОГУ</p>
+        <p class="title">Для консультации</p>
+        <a href="#" class="button">Список нутрициологов</a>
+    </div>
+    <div class="footer">
+        <div class="footer-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTY3eB_wTQvEjoq64yklhiSoMmCNq0aTqA&s" alt="Home">
+            <p>Home</p>
+        </div>
+        <div class="footer-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTY3eB_wTQvEjoq64yklhiSoMmCNq0aTqA&s" alt="ИЗП">
+            <p>ИЗП</p>
+        </div>
+        <div class="footer-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTY3eB_wTQvEjoq64yklhiSoMmCNq0aTqA&s" alt="Химсостав">
+            <p>Химсостав</p>
+        </div>
+        <div class="footer-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTY3eB_wTQvEjoq64yklhiSoMmCNq0aTqA&s" alt="Отчеты">
+            <p>Отчеты</p>
+        </div>
+        <div class="footer-item">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS1YTY3eB_wTQvEjoq64yklhiSoMmCNq0aTqA&s" alt="Профиль">
+            <p>Профиль</p>
+        </div>
+    </div>
+</body>
+</html>
